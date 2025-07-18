@@ -1,73 +1,174 @@
-# Welcome to your Lovable project
+# 📱 iHealth – Mobile AI Triage Assistant
 
-## Project info
+> 🌍 **iHealth** is a mobile-first, AI-powered triage assistant for underserved communities — enabling anyone to describe their symptoms via voice or text, receive instant health guidance powered by LLM + vision AI, and connect with care nearby.  
+> 🩺 Built for dignity, designed for real-world access.
 
-**URL**: https://lovable.dev/projects/4ad165d8-d84c-4157-8d82-b998d57ca898
+---
 
-## How can I edit this code?
+## 📹 Demo Video
 
-There are several ways of editing your application.
+🎥 [Watch our 2-minute project video](https://youtu.be/YfbEmNFaaxs)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4ad165d8-d84c-4157-8d82-b998d57ca898) and start prompting.
+## 🚀 Live APK
 
-Changes made via Lovable will be committed automatically to this repo.
+📦 [Download APK (Android)](https://drive.google.com/file/d/1va33syW5iAl8xykkWnQY3lDApl3j0rFR/view?usp=drive_link)
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🧑‍💻 Source Code
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- 📱 **Flutter Frontend:** [ihealth_frontend (GitHub)](https://github.com/Muhammadurasheed/ihealth_frontend.git)  
+- ⚙️ **Node.js Backend:** [ihealth_backend (GitHub)](https://github.com/Muhammadurasheed/ihealth_backend.git)
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## ✨ What Can It Do?
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- 🧠 Understand symptoms via **voice or text** in local languages  
+- 📷 Snap or upload a skin image for **AI-driven dermatology triage**  
+- 💬 Educate users about **causes, triggers, remedies, prevention**  
+- 📍 Recommend **verified local clinics** using OpenStreetMap  
+- 🧾 Save symptoms to history — offline + online sync  
+- 🔒 100% privacy-first. Runs with edge AI + secured endpoints
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 📱 Mobile Stack Overview
 
-**Edit a file directly in GitHub**
+| Layer               | Tech                             |
+|---------------------|----------------------------------|
+| Frontend            | Flutter (Dart)                   |
+| State Management    | Riverpod                         |
+| Voice Input         | `speech_to_text` SDK             |
+| Camera/Image Upload | `image_picker`, `cloudinary`     |
+| API Integration     | REST + secured endpoints         |
+| Offline Support     | Hive + SharedPreferences         |
+| Navigation          | `go_router`                      |
+| Translation         | LibreTranslate (self-hosted)     |
+| Location/Map        | OpenStreetMap SDK                |
+| Styling             | Futura font + dark/white theme   |
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📦 How to Run (Local Dev)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 1. Prerequisites
 
-## What technologies are used for this project?
+- Flutter SDK (`>=3.10.0`)
+- Android Studio or Xcode
+- Access to backend URL & Cloudinary creds
 
-This project is built with:
+### 2. Install & Launch
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+# Clone the frontend
+git clone https://github.com/Muhammadurasheed/ihealth_frontend.git
+cd ihealth_frontend
 
-## How can I deploy this project?
+# Install packages
+flutter pub get
 
-Simply open [Lovable](https://lovable.dev/projects/4ad165d8-d84c-4157-8d82-b998d57ca898) and click on Share -> Publish.
+# Run on device/emulator
+flutter run
+3. Configure Environment
+Create .env or insert directly:
+CLOUDINARY_URL=your_key
+BASE_API_URL=https://your-api.com
 
-## Can I connect a custom domain to my Lovable project?
+🧱 Architecture Overview
+lib/
+├── main.dart                # App entry
+├── ui/                      # Screens & widgets
+│   ├── home/
+│   ├── diagnosis/
+│   ├── history/
+│   └── settings/
+├── services/                # API, voice, image handlers
+├── models/                  # Response/data models
+├── localization/            # Intl + translations
+├── providers/               # Riverpod state logic
+├── utils/                   # Constants & helpers
 
-Yes, you can!
+🧪 AI & Intelligence Pipeline
+Skin Image Diagnosis:
+Hugging Face's AutoDerm + custom fallback model trained on dark skin
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Language Support:
+LibreTranslate hosted in Docker container for fast, private multilingual response
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+LLM Symptom Explanation:
+Gemini 1.5 Flash used for triage explanation, condition summaries, and personalized education
+
+Voice Transcription:
+Flutter speech-to-text SDK
+
+Maps & Clinics:
+OpenStreetMap → suggests verified clinics based on geo-location
+
+⚙️ Features by Role
+Role	Features
+General Users	Speak/type symptoms, photo upload, get guidance, history, privacy-first
+Medical Students	Use for symptom checking, decision support, education, image learning
+Healthcare Orgs	Integration-ready; insights via anonymized, aggregated triage trends
+Doctors/Clinics	Visibility on map, optional user referrals via future integration
+
+🧠 Why iHealth?
+Healthcare isn't just a human need — it's a human right.
+
+iHealth is built for those who fall through the cracks:
+
+The girl in rural Nigeria facing skin stigma
+
+The boy in Kenya too shy to describe symptoms in English
+
+The mother in India who can't afford a clinic visit without knowing if it's serious
+
+🔐 Trust, Privacy, and Safety
+iHealth is not a diagnostic tool — it's a triage assistant
+
+Disclaimers and explainability built in for every AI output
+
+Users stay anonymous unless they choose to sign in
+
+No health info shared with 3rd parties
+
+🛠 Challenges We Solved
+✅ Building voice + multilingual UX for low-literacy users
+
+✅ Skin tone fairness in AI dermatology
+
+✅ Private AI usage without sending data to unknown clouds
+
+✅ Fast experience in rural areas with weak internet
+
+✅ Getting quality insights from symptoms using LLM
+
+🙌 Built For
+👩‍⚕️ Health Hackathons & NGOs
+
+📱 Global digital health communities
+
+🌍 Real users in Africa, Asia & beyond
+
+👥 Contributors
+Name	Role
+Rasheed Yekini	Lead Engineer (Flutter)
+Rasheed Yekini	AI + Backend Integrations
+Rasheed Yekini	Product Designer / UX
+Rasheed Yekini	API + Node.js Backend
+
+📬 Contact Us
+📧 yekinirasheed2002@gmail.com
+
+🌐 Project Video (YouTube)
+
+🧠 Backend GitHub
+
+💻 Frontend GitHub
+
+📱 APK Download
+
+iHealth: From Africa, for the world.
+Your health. Your language. Your phone.
